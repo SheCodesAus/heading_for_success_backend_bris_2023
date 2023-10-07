@@ -47,7 +47,6 @@ Feature | Access | Note/Condition
 *Delete* | Admin | **Must be logged in** 
 
 
-
 **STRETCH GOALS**:  
 
 - Dynamic form for new posting programs/questions  
@@ -68,6 +67,31 @@ Python
 
 ## Database schema  
 To be added later
+
+## API Specification  
+
+HTTP Method | Url           | Purpose            | Request Body   | Successful Response Code | Authentication / Authorization |  
+--- | --- | --- |--- | --- | --- |
+GET | /program | Get all programs |None | 200 | Admin |
+GET | /scholarship | Get all scholarships |None | 200 | Admin |
+GET | /applicant | Get all applicants |None | 200 | Admin |
+GET | /program/1 | Return the program with ID of "1" |None | 200 | Admin |
+GET | /scholarship/1 | Return the scholarship with ID of "1" |None | 200 | Admin |
+GET | /applicant/1 | Return the applicant with ID of "1 |None| 200 | Admin |
+GET | /program-open | Get all programs where application_date_end is > today |None | 200 | None |
+GET | /user/1 | Return the user with ID of “1” |None | 200 | Must be ID of Logged in Admin User |
+POST | /program | Create a new program |--- | 201 | Admin |
+POST | /scholarship | Create a new scholarship |--- | 201 | Admin |
+POST | /applicant | Create a new applicant |--- | 201 | None |
+POST | /user | Create a new admin user |--- | 201 | Admin |
+POST | /api-token-auth | Create authentication for user |--- | 200 | Username and password must be supplied |
+PUT | /program/1 | Update the program with ID of "1" |--- | 200 | Admin |
+PUT | /scholarship/1 | Update the scholarship with ID of "1" |--- | 200 | Admin |
+PUT | /applicant/1 | Update the applicant with ID of "1" |--- | 200 | Admin |
+PUT | /user/1 | Update the user with ID of “1” |--- | 200 | Must be ID of Logged in Admin User |
+DELETE | /program/1 | Delete the program with ID of "1" |None | 204 | Admin |
+DELETE | /scholarship/1 | Delete the scholarship with ID of "1" |None | 204 | Admin |
+DELETE | /applicant/1 | Delete the applicant with ID of "1" |None | 204 | Admin |
 
 ## Submission Documentation 
 Deployed Project: [Deployed website]() 
