@@ -3,6 +3,9 @@
 ## FIRST, One Person In The Group Should:
 1. Clone this repo down using `git clone insert_quick_setup_link_here`
 2. Create and activate a `venv` as normal
+    - 2a. Run python -m venv venv
+    - 2b. Run . venv/Scripts/activate (Windows)
+    - 2b. Run source venv/bin/activate (Mac)
 3. Run `pip install -r requirements.txt` to install dependencies
 4. Create a Django project with `django-admin startproject <your_app_name>`
 5. Check you're happy with the files to stage, using `git status` 
