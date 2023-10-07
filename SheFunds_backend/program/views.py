@@ -7,7 +7,7 @@ from django.http import Http404
 from rest_framework import status, permissions
 
 class ProgramList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         program = Program.objects.all()
