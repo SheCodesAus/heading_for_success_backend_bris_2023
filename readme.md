@@ -1,27 +1,104 @@
-# Instructions For Setting Up This Repo
+# SheFunds  - Backend
 
-## FIRST, One Person In The Group Should:
-1. Clone this repo down using `git clone insert_quick_setup_link_here`
-2. Create and activate a `venv` as normal
-    - 2a. Run python -m venv venv
-    - 2b. Run . venv/Scripts/activate (Windows)
-    - 2b. Run source venv/bin/activate (Mac)
-3. Run `pip install -r requirements.txt` to install dependencies
-4. Create a Django project with `django-admin startproject <your_app_name>`
-5. Check you're happy with the files to stage, using `git status` 
-6. Stage each file in turn with `git add <filename_here>`
-7. Create the initial commit with `git commit -m "initial commit"`
-8. Push to origin/main, using `git push origin main`
+SheFunds was born as a class project for SheCodes cohort of Brisbane 2023.  
 
-## THEN, All Other Group Members Should:
-1. Clone the repo down with `git clone insert_quick_setup_link_here`
+The goal of the project is to provide a one-stop-shop for students to browse and apply to programs.  
+
+ For admins, to upkeep and maintain a dynamic view of available open programs, review applications and match students with the best scholarship for them.
+
+ ## Contributors  
+ Tracey Nguyen - Add github link?  
+ Julie Powell - Add github link?   
+ Cinzia Loi - Add github link?  
+
+## Features: 
+**USERS**  
+
+Type | Access | Role type assignment
+--- | --- | ---
+*Admin* | All access    | **All SheCodes staff**  
+-- | Can log in | --
+-- | Can log out | --
+-- | Create and manage Programs | --
+-- | Create and manage Scholarships | --
+-- | Create and manage other users | --
+-- | View and manage applications | --
+*Applicants* | Can browse open programs | **Public -anyone with link**
+-- | Can apply for programs | --
+-- | As explicitly requested by PO applications cannot be withdrawn | --
+
+
+**SCHOLARSHIPS**  
+
+Feature | Access | Note/Condition
+--- | --- | ---
+*Create, update, view* | Admin    | **User must be logged in**  
+*Delete* | Admin | **Must be inactive** 
+
+
+**APPLICATION**  
+
+Feature | Access | Note/Condition
+--- | --- | ---
+*Create* | Anyone with a link    |   
+*View* | Admin | **Must be logged in** 
+*Update* | Admin | **Must be logged in** 
+-- | -- | **Can only update specific fields (EG Is_accepted? And Scholarship)** 
+*Delete* | Admin | **Must be logged in** 
+
+
+**STRETCH GOALS**:  
+
+- Dynamic form for new posting programs/questions  
+- Profile accessible via login for applicants to update personal info and application.  
+- Auto email applicants to let them know the outcome of their application  
+- Auto email newly created users with their first-login credentials  
+- Matrix to suggest best sponsor for an applicant based on predefined criteria  
+- Search criteria for open programs for applicant
+Editing own user profile
+
+
+## Languages & Frameworks: 
+
+Back-end:  
+
+Django Rest Framework (DRF) API  
+Python  
+
+## Database schema  
+To be added later
+
+## API Specification  
+
+HTTP Method | Url           | Purpose            | Request Body   | Successful Response Code | Authentication / Authorization |  
+--- | --- | --- |--- | --- | --- |
+GET | /program | Get all programs |None | 200 | Admin |
+GET | /scholarship | Get all scholarships |None | 200 | Admin |
+GET | /applicant | Get all applicants |None | 200 | Admin |
+GET | /program/1 | Return the program with ID of "1" |None | 200 | Admin |
+GET | /scholarship/1 | Return the scholarship with ID of "1" |None | 200 | Admin |
+GET | /applicant/1 | Return the applicant with ID of "1 |None| 200 | Admin |
+GET | /program-open | Get all programs where application_date_end is > today |None | 200 | None |
+GET | /user/1 | Return the user with ID of “1” |None | 200 | Must be ID of Logged in Admin User |
+POST | /program | Create a new program |--- | 201 | Admin |
+POST | /scholarship | Create a new scholarship |--- | 201 | Admin |
+POST | /applicant | Create a new applicant |--- | 201 | None |
+POST | /user | Create a new admin user |--- | 201 | Admin |
+POST | /api-token-auth | Create authentication for user |--- | 200 | Username and password must be supplied |
+PUT | /program/1 | Update the program with ID of "1" |--- | 200 | Admin |
+PUT | /scholarship/1 | Update the scholarship with ID of "1" |--- | 200 | Admin |
+PUT | /applicant/1 | Update the applicant with ID of "1" |--- | 200 | Admin |
+PUT | /user/1 | Update the user with ID of “1” |--- | 200 | Must be ID of Logged in Admin User |
+DELETE | /program/1 | Delete the program with ID of "1" |None | 204 | Admin |
+DELETE | /scholarship/1 | Delete the scholarship with ID of "1" |None | 204 | Admin |
+DELETE | /applicant/1 | Delete the applicant with ID of "1" |None | 204 | Admin |
+
+## Submission Documentation 
+Deployed Project: [Deployed website]() 
+
+## Instructions For Setting Up This Repo
+
+1. Clone the repo down with `git clone https://github.com/SheCodesAus/heading_for_success_backend_bris_2023.git`
 2. Create and activate a `venv`
 3. Install dependencies with `pip install -r requirements.txt`
 
-## Finally:
-1. One group member should make a push replacing this readme text with the skeleton of your readme document.
-2. All other group members should pull down this change (`git pull origin main`)
-
-> For next steps, take a look back at the "Project Setup" lesson in the DRF content.
->
-> Try and get the most minimal possible app deployed ASAP, using the DRF "Deployment" lesson. Even just an endpoint that only returns "Hello world" is a good way to start. Only one person needs to get the deployment set up, and after that other people should be able to merge feature branches into `main` as described on the Thinkific notes.
