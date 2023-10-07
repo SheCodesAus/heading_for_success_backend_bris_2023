@@ -4,12 +4,12 @@ SheFunds was born as a class project for SheCodes cohort of Brisbane 2023.
 
 The goal of the project is to provide a one-stop-shop for students to browse and apply to programs.  
 
- For admins, to upkeep and maintain a dynamic view of available open programs, review applications and match students with the best scholarship for them.
+For admins, to upkeep and maintain a dynamic view of available open programs, review applications and match students with the best scholarship for them.
 
- ## Contributors  
- Tracey Nguyen - Add github link?  
- Julie Powell - Add github link?   
- Cinzia Loi - Add github link?  
+## Contributors  
+Tracey Nguyen - Add github link?  
+Julie Powell - Add github link?   
+Cinzia Loi - Add github link?  
 
 ## Features: 
 **USERS**  
@@ -21,7 +21,7 @@ Type | Access | Role type assignment
 -- | Can log out | --
 -- | Create and manage Programs | --
 -- | Create and manage Scholarships | --
--- | Create and manage other users | --
+-- | Create other users | --
 -- | View and manage applications | --
 *Applicants* | Can browse open programs | **Public -anyone with link**
 -- | Can apply for programs | --
@@ -60,13 +60,24 @@ Editing own user profile
 
 ## Languages & Frameworks: 
 
-Back-end:  
+*Back-end:*  
+- Django Rest Framework (DRF) API  
+- Python  
 
-Django Rest Framework (DRF) API  
-Python  
+*Database:*  
+- SQLite3  
+
+*Deployment:*  
+- Fly.io (backend)  
+
+*Other Tools:*  
+- GitHub (code control and collaboration)  
+- Insomnia (API testing)
+
 
 ## Database schema  
-To be added later
+ 
+![Successful get of a project](./Images/DBSchema.jpeg) 
 
 ## API Specification  
 
@@ -88,7 +99,6 @@ POST | /api-token-auth | Create authentication for user |--- | 200 | Username an
 PUT | /program/1 | Update the program with ID of "1" |--- | 200 | Admin |
 PUT | /scholarship/1 | Update the scholarship with ID of "1" |--- | 200 | Admin |
 PUT | /applicant/1 | Update the applicant with ID of "1" |--- | 200 | Admin |
-PUT | /user/1 | Update the user with ID of “1” |--- | 200 | Must be ID of Logged in Admin User |
 DELETE | /program/1 | Delete the program with ID of "1" |None | 204 | Admin |
 DELETE | /scholarship/1 | Delete the scholarship with ID of "1" |None | 204 | Admin |
 DELETE | /applicant/1 | Delete the applicant with ID of "1" |None | 204 | Admin |
