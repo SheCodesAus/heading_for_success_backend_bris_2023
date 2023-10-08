@@ -4,15 +4,15 @@ from rest_framework.response import Response
 from rest_framework import status, permissions
 from .models import CustomUser
 from .serializers import CustomUserSerializer
-from .permissions import IsAuthenticatedUser
+# from .permissions import IsAuthenticatedUser
 
 # Create your views here.
 
 class CustomUserList(APIView):
 
     def get(self, request):
-        users = CustomUser.objects.all()
-        serializer = CustomUserSerializer(users, many=True)
+        user = CustomUser.objects.all()
+        serializer = CustomUserSerializer(user, many=True)
         return Response(serializer.data)
     
     def post(self, request):
