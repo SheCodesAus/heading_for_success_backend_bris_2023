@@ -138,5 +138,6 @@ class Applicant(models.Model):
         'Scholarship',
         on_delete=models.CASCADE,
         related_name='assigned_scholarship',
+        null=True,
         blank=True
     )    
