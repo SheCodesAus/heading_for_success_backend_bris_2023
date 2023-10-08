@@ -12,7 +12,7 @@ class ScholarshipSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProgramDetailSerializer(ProgramSerializer):
-    scholarships = ScholarshipSerializer(many=True, read_only=True)     
+    scholarship = ScholarshipSerializer(many=True, read_only=True)     
 
     def update(self, instance, validated_data):
         instance.program_name = validated_data.get('program_name', instance.program_name)
