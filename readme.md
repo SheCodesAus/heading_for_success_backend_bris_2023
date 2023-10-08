@@ -7,7 +7,7 @@ The goal of the project is to provide a one-stop-shop for students to browse and
 For admins, to upkeep and maintain a dynamic view of available open programs, review applications and match students with the best scholarship for them.
 
 ## Contributors  
-Tracey Nguyen - Add github link?  
+* Tracey Nguyen - [https://github.com/trace-n](https://github.com/trace-n)
 Julie Powell - Add github link?   
 Cinzia Loi - Add github link?  
 
@@ -55,7 +55,7 @@ Feature | Access | Note/Condition
 - Auto email newly created users with their first-login credentials  
 - Matrix to suggest best sponsor for an applicant based on predefined criteria  
 - Search criteria for open programs for applicant
-Editing own user profile
+- Editing own user profile
 
 
 ## Languages & Frameworks: 
@@ -77,7 +77,7 @@ Editing own user profile
 
 ## Database schema  
  
-![Successful get of a project](./Images/DBSchema.jpeg) 
+![DB Schema Diagram](./Images/DBSchema.jpeg "DB schema") 
 
 ## API Specification  
 
@@ -99,12 +99,13 @@ POST | /api-token-auth | Create authentication for user |--- | 200 | Username an
 PUT | /program/1 | Update the program with ID of "1" |--- | 200 | Admin |
 PUT | /scholarship/1 | Update the scholarship with ID of "1" |--- | 200 | Admin |
 PUT | /applicant/1 | Update the applicant with ID of "1" |--- | 200 | Admin |
+PUT | /user/1 | Update the user with ID of "1" |--- | 200 | Admin |
 DELETE | /program/1 | Delete the program with ID of "1" |None | 204 | Admin |
 DELETE | /scholarship/1 | Delete the scholarship with ID of "1" |None | 204 | Admin |
 DELETE | /applicant/1 | Delete the applicant with ID of "1" |None | 204 | Admin |
 
 ## Submission Documentation 
-Deployed Project: [Deployed website]() 
+Deployed Project: [https://shefunds.fly.dev](https://shefunds.fly.dev "Deployed Backend DRF site") 
 
 ## Instructions For Setting Up This Repo
 
