@@ -39,7 +39,7 @@ class Scholarship(models.Model):
     contact_mobile = models.IntegerField()
     scholarship_amount = models.IntegerField()
     number_available = models.IntegerField()
-    program_id = models.ForeignKey(
+    program = models.ForeignKey(
         'Program',
         on_delete=models.CASCADE,
         related_name='scholarship'
