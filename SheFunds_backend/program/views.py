@@ -63,9 +63,28 @@ class ScholarshipList(APIView):
 
 class ScholarshipDetail(APIView):
     def get_object(self, pk):
-        return Scholarship.objects.get(pk=pk)
+        try:
+            return Scholarship.objects.get(pk=pk)
+        except Scholarship.DoesNotExist:
+            raise Http404
     
     def get(self, request, pk):
         scholarship = self.get_object(pk)
         serializer = ScholarshipSerializer(scholarship)
         return Response(serializer.data)
+    
+    def put(self, request, pk):
+        scholarship = self.get_object(pk)
+        serializer = ScholarshipSerializer(
+            instance=scholarship,
+            data=request.data,
+            partial=True
+        )
+        if serializer.is_valid():
+            serializer.save()
+        return Response(status=status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        scholarship = self.get_object(pk)
+        scholarship.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
