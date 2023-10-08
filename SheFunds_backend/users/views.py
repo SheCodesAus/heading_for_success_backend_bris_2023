@@ -33,7 +33,7 @@ class CustomUserDetail(APIView):
     #     permissions.IsAuthenticatedOrReadOnly,
     #     IsAuthenticatedUser
     # ]     
-    #    
+       
     def get_object(self, pk):
         try:
             user = CustomUser.objects.get(pk=pk)
