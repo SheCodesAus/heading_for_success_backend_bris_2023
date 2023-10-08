@@ -43,6 +43,7 @@ CSRF_TRUSTED_ORIGINS = ['https://*.fly.dev']
 
 INSTALLED_APPS = [
     'program.apps.ProgramConfig',
+    'users.apps.UsersConfig',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',    
