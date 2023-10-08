@@ -148,16 +148,13 @@ class ApplicantList(APIView):
 
     def post(self, request):
         serializer = ApplicantSerializer(data=request.data)
-        print("serializer errors",serializer)
         if serializer.is_valid():
             serializer.save()
-            print("got to save",serializer)
             return Response(
                 serializer.data, 
                 status=status.HTTP_201_CREATED
             )
         return Response(
-            print("serializer errors", serializer),
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )

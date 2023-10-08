@@ -118,12 +118,10 @@ class Applicant(models.Model):
     previous_education = models.CharField(max_length=200)
     work_experience = models.TextField()
     currently_employed = models.BooleanField()
-    # current_employer = models.CharField(max_length=200, blank=True)    
-    current_employer = models.CharField(max_length=200)    
+    current_employer = models.CharField(max_length=200, blank=True)    
     biography = models.TextField()
     gender_eligible = models.BooleanField()
-    # resume = models.URLField(blank=True)
-    resume = models.URLField()
+    resume = models.URLField(blank=True)
     status = models.CharField(
         max_length=20, 
         choices=STATUS_APPLICANT_CHOICES, 
