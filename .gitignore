@@ -163,4 +163,4 @@ cython_debug/
 staticfiles
 
 # Migrations
-*.initial.py
+.initial.py
