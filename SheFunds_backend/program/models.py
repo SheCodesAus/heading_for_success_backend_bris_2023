@@ -31,3 +31,16 @@ class Program(models.Model):
     application_date_start = models.DateTimeField()
     application_date_end = models.DateTimeField()
     
+
+class Scholarship(models.Model):
+    organization = models.CharField(max_length=200)
+    contact_person = models.CharField(max_length=200)
+    contact_email = models.EmailField()
+    contact_mobile = models.IntegerField()
+    scholarship_amount = models.IntegerField()
+    number_available = models.IntegerField()
+    program_id = models.ForeignKey(
+        'Program',
+        on_delete=models.CASCADE,
+        related_name='scholarship'
+    )
