@@ -60,3 +60,12 @@ class ScholarshipList(APIView):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+
+class ScholarshipDetail(APIView):
+    def get_object(self, pk):
+        return Scholarship.objects.get(pk=pk)
+    
+    def get(self, request, pk):
+        scholarship = self.get_object(pk)
+        serializer = ScholarshipSerializer(scholarship)
+        return Response(serializer.data)
