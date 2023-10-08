@@ -4,7 +4,7 @@ from django.apps import apps
 class ProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = apps.get_model('program.Program')
-        fields = '__all__'
+        fields = '__all__' 
 
 class ScholarshipSerializer(serializers.ModelSerializer):
     class Meta:
