@@ -110,9 +110,9 @@ class Applicant(models.Model):
     email = models.EmailField()
     age = models.IntegerField()
     contact_mobile = models.IntegerField()
-    home_city = models.CharField(max_length=200)
-    pronouns = models.CharField(max_length=200)
-    qualities = models.TextField()
+    # home_city = models.CharField(max_length=200)
+    # pronouns = models.CharField(max_length=200)
+    # qualities = models.TextField()
     location =  models.CharField(
         max_length=20, 
         choices=LOCATION_CHOICES, 
