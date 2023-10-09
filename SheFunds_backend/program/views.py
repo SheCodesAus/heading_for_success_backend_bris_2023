@@ -131,7 +131,10 @@ class ScholarshipDetail(APIView):
         )
         if serializer.is_valid():
             serializer.save()
-        return Response(status=status.HTTP_200_OK)
+        return Response(
+            serializer.data,
+            status=status.HTTP_200_OK
+            )
 
     def delete(self, request, pk):
         scholarship = self.get_object(pk)
