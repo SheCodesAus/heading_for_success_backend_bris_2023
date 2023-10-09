@@ -110,6 +110,9 @@ class Applicant(models.Model):
     email = models.EmailField()
     age = models.IntegerField()
     contact_mobile = models.IntegerField()
+    home_city = models.CharField(max_length=200)
+    pronouns = models.CharField(max_length=200)
+    qualities = models.TextField()
     location =  models.CharField(
         max_length=20, 
         choices=LOCATION_CHOICES, 
@@ -120,7 +123,7 @@ class Applicant(models.Model):
     currently_employed = models.BooleanField()
     current_employer = models.CharField(max_length=200, blank=True)    
     biography = models.TextField()
-    gender_eligible = models.BooleanField()
+    gender_eligible = models.BooleanField(null=True, blank=True)
     resume = models.URLField(blank=True)
     status = models.CharField(
         max_length=20, 
