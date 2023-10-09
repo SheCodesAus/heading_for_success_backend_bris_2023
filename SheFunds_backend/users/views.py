@@ -10,7 +10,7 @@ from .serializers import CustomUserSerializer
 
 
 class CustomUserList(APIView):
-    
+
     def get(self, request):
         user = CustomUser.objects.all()
         serializer = CustomUserSerializer(user, many=True)
@@ -19,16 +19,11 @@ class CustomUserList(APIView):
     def post(self, request):
         serializer = CustomUserSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save() 
-            return Response(
-                serializer.data,
-                status=status.HTTP_201_CREATED
-                )
-        return Response(
-            serializer.errors,
-            status=status.HTTP_400_BAD_REQUEST
-            )
-    
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class CustomUserDetail(APIView):
     # permission_classes = [
     #     permissions.IsAuthenticatedOrReadOnly,
@@ -59,5 +54,5 @@ class CustomUserDetail(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-
+        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
