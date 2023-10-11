@@ -7,9 +7,9 @@ The goal of the project is to provide a one-stop-shop for students to browse and
 For admins, to upkeep and maintain a dynamic view of available open programs, review applications and match students with the best scholarship for them.
 
 ## Contributors  
-* Tracey Nguyen - [https://github.com/trace-n](https://github.com/trace-n)
-Julie Powell - Add github link?   
-Cinzia Loi - Add github link?  
+* Tracey Nguyen - [https://github.com/trace-n](https://github.com/trace-n)  
+* Julie Powell - Add github link?   
+* Cinzia Loi - https://github.com/cinzialoi  
 
 ## Features: 
 **USERS**  
@@ -91,15 +91,15 @@ GET | /scholarship/1 | Return the scholarship with ID of "1" |None | 200 | Admin
 GET | /applicant/1 | Return the applicant with ID of "1 |None| 200 | Admin |
 GET | /program-open | Get all programs where application_date_end is > today |None | 200 | None |
 GET | /user/1 | Return the user with ID of “1” |None | 200 | Must be ID of Logged in Admin User |
-POST | /program | Create a new program |--- | 201 | Admin |
-POST | /scholarship | Create a new scholarship |--- | 201 | Admin |
+POST | /program | Create a new program | { <br /> "program_name": "SheCodes Founder", <br />"location": "Brisbane",<br />"intake": "September 2023",<br />"description": "Female entrepreneur course for start up",<br />"image": "https://via.placeholder.com/300.jpg",<br />"date_start": "2023-09-01T23:53:30.592856Z",<br />"date_end": "2024-10-31T23:53:30.592856Z",<br />"application_date_start": "2023-07-01T23:53:30.592856Z",<br />"application_date_end": "2023-08-31T23:53:30.592856Z"<br />} | 201 | Admin |
+POST | /scholarship | Create a new scholarship |{<br />"organization": "Latest test",<br />"contact_person": "Test McTesterson",<br />"contact_email": "Blah@test.com",<br />"contact_mobile": "0400000000",<br />"scholarship_amount": "40000",<br />"number_available": "4",<br />"program": "2"<br />} | 201 | Admin |
 POST | /applicant | Create a new applicant |--- | 201 | None |
-POST | /user | Create a new admin user |--- | 201 | Admin |
+POST | /user | Create a new admin user |{<br />	"username": "Test",<br />	"password": "Welcome@123",<br />	"first_name": "Cinzia",<br />	"last_name": "Test",<br />	"email": "test@test.com",<br />	"image": "https://via.placeholder.com/300.jpg"<br />} | 201 | Admin |
 POST | /api-token-auth | Create authentication for user |--- | 200 | Username and password must be supplied |
-PUT | /program/1 | Update the program with ID of "1" |--- | 200 | Admin |
-PUT | /scholarship/1 | Update the scholarship with ID of "1" |--- | 200 | Admin |
+PUT | /program/1 | Update the program with ID of "1" |{ <br /> "program_name": "SheCodes Founder", <br />"location": "Brisbane",<br />"intake": "September 2023",<br />"description": "Female entrepreneur course for start up",<br />"image": "https://via.placeholder.com/300.jpg",<br />"date_start": "2023-09-01T23:53:30.592856Z",<br />"date_end": "2024-10-31T23:53:30.592856Z",<br />"application_date_start": "2023-07-01T23:53:30.592856Z",<br />"application_date_end": "2023-08-31T23:53:30.592856Z"<br />} | 200 | Admin |
+PUT | /scholarship/1 | Update the scholarship with ID of "1" |{<br />"organization": "Latest test",<br />"contact_person": "Test McTesterson",<br />"contact_email": "Blah@test.com",<br />"contact_mobile": "0400000000",<br />"scholarship_amount": "40000",<br />"number_available": "4",<br />"program": "2"<br />} | 200 | Admin |
 PUT | /applicant/1 | Update the applicant with ID of "1" |--- | 200 | Admin |
-PUT | /user/1 | Update the user with ID of "1" |--- | 200 | Admin |
+PUT | /user/1 | Update the user with ID of "1" |{<br />	"username": "Test",<br />	"password": "Welcome@123",<br />	"first_name": "Cinzia",<br />	"last_name": "Test",<br />	"email": "test@test.com",<br />	"image": "https://via.placeholder.com/300.jpg"<br />}  | 200 | Admin |
 DELETE | /program/1 | Delete the program with ID of "1" |None | 204 | Admin |
 DELETE | /scholarship/1 | Delete the scholarship with ID of "1" |None | 204 | Admin |
 DELETE | /applicant/1 | Delete the applicant with ID of "1" |None | 204 | Admin |
