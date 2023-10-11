@@ -88,7 +88,7 @@ class ProgramOpenList(APIView):
         return Response(serializer.data)
 
 class ScholarshipList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         scholarship = Scholarship.objects.all()
@@ -144,7 +144,8 @@ class ScholarshipDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class ApplicantList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    #commenting the above out as posting of applicant requires no permission
 
     def get(self, request):
         applicant = Applicant.objects.all()
