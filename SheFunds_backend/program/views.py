@@ -8,7 +8,7 @@ from rest_framework import status, permissions
 import datetime 
 
 class ProgramList(APIView):
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         program = Program.objects.all()
@@ -29,22 +29,20 @@ class ProgramList(APIView):
         )
     
 class ProgramDetail(APIView):
-    # permission_classes = [
-    #     permissions.IsAuthenticatedOrReadOnly
-    # ]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_object(self, pk):
 
         try: 
             program = Program.objects.get(pk=pk)
-            # self.check_object_permissions(self.request, program)
+            self.check_object_permissions(self.request, program)
             return program
         except Program.DoesNotExist:
             raise Http404
 
     def get(self, request, pk):
         program = self.get_object(pk) 
-        # serializer = ProgramSerializer(Program)
+        #serializer = ProgramSerializer(Program)
         serializer = ProgramDetailSerializer(program)        
         return Response(serializer.data)
     
@@ -90,7 +88,7 @@ class ProgramOpenList(APIView):
         return Response(serializer.data)
 
 class ScholarshipList(APIView):
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         scholarship = Scholarship.objects.all()
@@ -111,9 +109,13 @@ class ScholarshipList(APIView):
         )
 
 class ScholarshipDetail(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
     def get_object(self, pk):
         try:
-            return Scholarship.objects.get(pk=pk)
+            scholarship = Scholarship.objects.get(pk=pk)
+            self.check_object_permissions(self.request, scholarship)
+            return scholarship
         except Scholarship.DoesNotExist:
             raise Http404
     
@@ -142,7 +144,7 @@ class ScholarshipDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class ApplicantList(APIView):
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         applicant = Applicant.objects.all()
@@ -163,15 +165,13 @@ class ApplicantList(APIView):
         )
     
 class ApplicantDetail(APIView):
-    # permission_classes = [
-    #     permissions.IsAuthenticatedOrReadOnly
-    # ]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, pk):
 
         try: 
             applicant = Applicant.objects.get(pk=pk)
-            # self.check_object_permissions(self.request, program)
+            self.check_object_permissions(self.request, applicant)
             return applicant
         except Applicant.DoesNotExist:
             raise Http404

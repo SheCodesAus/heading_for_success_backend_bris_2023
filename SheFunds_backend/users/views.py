@@ -25,10 +25,7 @@ class CustomUserList(APIView):
 
 
 class CustomUserDetail(APIView):
-    # permission_classes = [
-    #     permissions.IsAuthenticatedOrReadOnly,
-    #     IsAuthenticatedUser
-    # ]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, pk):
         try:
