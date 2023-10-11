@@ -48,10 +48,10 @@ class Program(models.Model):
         choices=STATUS_CHOICES, 
         default='New'
     )
-    date_start = models.DateTimeField()
-    date_end = models.DateTimeField()
-    application_date_start = models.DateTimeField()
-    application_date_end = models.DateTimeField()
+    date_start = models.DateField()
+    date_end = models.DateField()
+    application_date_start = models.DateField()
+    application_date_end = models.DateField()
     
 
 class Scholarship(models.Model):
