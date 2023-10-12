@@ -6,6 +6,8 @@ from .serializers import ProgramSerializer, ScholarshipSerializer, ApplicantSeri
 from django.http import Http404
 from rest_framework import status, permissions
 import datetime 
+from django.core.mail import send_mail
+from django.conf import settings
 
 class ProgramList(APIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -156,6 +158,14 @@ class ApplicantList(APIView):
         serializer = ApplicantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            send_mail(
+                subject='She Codes Application Received', 
+                message='Thank you for your application, we will be in touch soon!', 
+                from_email=settings.EMAIL_HOST_USER, 
+                recipient_list=[request.data['email']],
+                fail_silently=False,
+            )            
+            
             return Response(
                 serializer.data, 
                 status=status.HTTP_201_CREATED
