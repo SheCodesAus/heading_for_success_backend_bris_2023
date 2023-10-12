@@ -10,6 +10,7 @@ from .serializers import CustomUserSerializer
 
 
 class CustomUserList(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         user = CustomUser.objects.all()

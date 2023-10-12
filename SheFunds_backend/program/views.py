@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 class ProgramList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         program = Program.objects.all()
@@ -31,7 +31,7 @@ class ProgramList(APIView):
         )
     
 class ProgramDetail(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, pk):
 
