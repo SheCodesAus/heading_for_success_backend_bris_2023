@@ -6,6 +6,7 @@ from .serializers import ProgramSerializer, ScholarshipSerializer, ApplicantSeri
 from django.http import Http404
 from rest_framework import status, permissions
 import datetime 
+from .permissions import IsApplicant
 
 class ProgramList(APIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -144,15 +145,18 @@ class ScholarshipDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class ApplicantList(APIView):
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsApplicant]
+
     #commenting the above out as posting of applicant requires no permission
 
     def get(self, request):
         applicant = Applicant.objects.all()
+        self.check_object_permissions(self.request, applicant)
         serializer = ApplicantSerializer(applicant, many=True)
         return Response(serializer.data)
 
     def post(self, request):
+
         serializer = ApplicantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
