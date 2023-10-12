@@ -10,6 +10,7 @@ from .serializers import CustomUserSerializer
 
 
 class CustomUserList(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         user = CustomUser.objects.all()
@@ -25,10 +26,7 @@ class CustomUserList(APIView):
 
 
 class CustomUserDetail(APIView):
-    # permission_classes = [
-    #     permissions.IsAuthenticatedOrReadOnly,
-    #     IsAuthenticatedUser
-    # ]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, pk):
         try:
