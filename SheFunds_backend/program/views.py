@@ -8,7 +8,7 @@ from rest_framework import status, permissions
 import datetime 
 from django.core.mail import send_mail
 from django.conf import settings
-
+from .permissions import IsApplicant
 
 class ProgramList(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -147,8 +147,7 @@ class ScholarshipDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class ApplicantList(APIView):
-    #permission_classes = [IsApplicant]
-
+    permission_classes = [IsApplicant]
     #commenting the above out as posting of applicant requires no permission
 
     def get(self, request):
