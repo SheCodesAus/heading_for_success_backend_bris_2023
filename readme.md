@@ -8,7 +8,7 @@ For admins, to upkeep and maintain a dynamic view of available open programs, re
 
 ## Contributors  
 * Tracey Nguyen - [https://github.com/trace-n](https://github.com/trace-n)  
-* Julie Powell - Add github link?   
+* Julie Powell - https://github.com/thellamiechan  
 * Cinzia Loi - https://github.com/cinzialoi  
 
 ## Features: 
